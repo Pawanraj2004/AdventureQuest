@@ -219,3 +219,18 @@ document.addEventListener('DOMContentLoaded', () => {
   `;
   document.head.appendChild(style);
 });
+
+const musicIcon = document.querySelector('.music-icon');
+const backgroundMusic = document.getElementById('background-music');
+let isPlaying = true; // Music will autoplay, so it's initially playing
+
+musicIcon.addEventListener('click', () => {
+    if (isPlaying) {
+        backgroundMusic.pause();
+    } else {
+        backgroundMusic.play();
+    }
+    isPlaying = !isPlaying;
+});
+
+

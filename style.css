@@ -124,6 +124,7 @@ section {
 #characters {
   background-color: #333;
   color: #fff;
+  padding: 2rem 0;
 }
 
 #characters h2 {
@@ -142,16 +143,51 @@ section {
 .character-card {
   flex: 0 0 250px;
   margin-right: 2rem;
+  perspective: 1000px; /* Added perspective to create 3D effect */
+  width: 250px; /* Ensure card size remains fixed */
+  height: 350px; /* Set height to maintain the size */
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+
+.character-card:hover .card-inner {
+  transform: rotateY(180deg); /* Flip the card on hover */
+}
+
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; /* Hide the back side when flipped */
+}
+
+.card-front {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
   padding: 1rem;
   text-align: center;
   transition: transform 0.3s ease;
-  scroll-snap-align: start;
 }
 
-.character-card:hover {
-  transform: scale(1.05);
+.card-back {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 10px;
+  transform: rotateY(180deg); /* Make the back face rotated initially */
 }
 
 .character-card img {
@@ -165,6 +201,12 @@ section {
 .character-card:hover img {
   transform: scale(1.1);
 }
+
+.character-card h3 {
+  font-size: 1.5rem;
+  margin-top: 1rem;
+}
+
 
 /* Replace the existing maps section CSS with these styles */
 #maps {
@@ -270,41 +312,80 @@ section {
 
 @keyframes pulse {
   0% {
-      box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.4);
+    box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.4);
   }
   70% {
-      box-shadow: 0 0 0 10px rgba(255, 215, 0, 0);
+    box-shadow: 0 0 0 10px rgba(255, 215, 0, 0);
   }
   100% {
-      box-shadow: 0 0 0 0 rgba(255, 215, 0, 0);
+    box-shadow: 0 0 0 0 rgba(255, 215, 0, 0);
   }
 }
 
 /* Position the markers */
 .location-marker[data-location="Tower Mountains"] {
   top: 25%;
-  left: 15%;
+  left: 20%;
 }
 
 .location-marker[data-location="Ebon Cave"] {
-  top: 60%;
-  left: 40%;
+  top: 75%;
+  left: 20%;
 }
 
 .location-marker[data-location="Towling Jungles"] {
-  top: 40%;
-  left: 70%;
+  top: 55%;
+  left: 35%;
 }
 
 .location-marker[data-location="Castle"] {
   top: 30%;
-  left: 85%;
+  left: 60%;
 }
 
 .location-marker[data-location="Flock Caves"] {
-  top: 70%;
-  left: 85%;
+  top: 55%;
+  left: 75%;
 }
+
+/* Styling for the location box that appears */
+.location-box {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #ffd700;
+  padding: 2rem;
+  border-radius: 10px;
+  display: none; /* Hidden initially */
+  max-width: 600px;
+  width: 100%;
+  text-align: center;
+  z-index: 1000;
+}
+
+.location-box img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.location-box button {
+  padding: 0.5rem 1rem;
+  background-color: #ffd700;
+  color: #2a2a2a;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.location-box button:hover {
+  background-color: #e6b800;
+}
+
 
 @media (max-width: 768px) {
   .map-container {
@@ -325,7 +406,7 @@ footer {
   background-color: #333;
   color: #fff;
   text-align: center;
-  padding: 1rem;
+  padding: 0rem;
 }
 
 @media (max-width: 768px) {
@@ -513,3 +594,32 @@ footer {
   }
 }
 
+audio {
+  display: none; /* Hide the audio player */
+}
+
+.music-icon {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  width: 50px;
+  height: 50px;
+  background-color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.music-icon img {
+  width: 70%;
+  height: 70%;
+}
+
+.music-icon:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
