@@ -52,7 +52,7 @@ nav ul li a:hover {
 
 header {
   height: 100vh;
-  background-image: url('image-2.png');
+  background-image: url('assets/image-2.png');
   background-size: cover;
   background-position: center;
   display: flex;
@@ -111,7 +111,7 @@ section {
 }
 
 #about {
-  background-image: url('image-1.png');
+  background-image: url('assets/image-1.png');
   background-repeat: no-repeat; /* Prevents the image from repeating */
   background-size: cover; /* Optional: Ensures the image covers the entire element */
   background-position: center; /* Optional: Centers the image */
@@ -527,7 +527,7 @@ footer {
   position: absolute;
   width: 100px;
   height: 100px;
-  background: url('crystal-decoration.png') no-repeat center/contain;
+  background: url('assets/image-3.png') no-repeat center/contain;
   opacity: 0.3;
   animation: float 6s ease-in-out infinite;
 }
