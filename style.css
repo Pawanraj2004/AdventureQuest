@@ -8,7 +8,7 @@ body {
   font-family: 'Roboto', sans-serif;
   line-height: 1.6;
   color: #333;
-  cursor:url("https://images.vexels.com/content/273074/preview/role-play-games-sword-icon-0b86ad.png");
+  
 }
 
 h1, h2, h3 {
@@ -112,9 +112,9 @@ section {
 
 #about {
   background-image: url('assets/image-1.png');
-  background-repeat: no-repeat; /* Prevents the image from repeating */
-  background-size: cover; /* Optional: Ensures the image covers the entire element */
-  background-position: center; /* Optional: Centers the image */
+  background-repeat: no-repeat; 
+  background-size: cover;
+  background-position: center; 
 }
 #about h2 {
   font-size: 2.5rem;
@@ -143,9 +143,9 @@ section {
 .character-card {
   flex: 0 0 250px;
   margin-right: 2rem;
-  perspective: 1000px; /* Added perspective to create 3D effect */
-  width: 250px; /* Ensure card size remains fixed */
-  height: 350px; /* Set height to maintain the size */
+  perspective: 1000px; 
+  width: 250px; 
+  height: 350px;
 }
 
 .card-inner {
@@ -157,14 +157,14 @@ section {
 }
 
 .character-card:hover .card-inner {
-  transform: rotateY(180deg); /* Flip the card on hover */
+  transform: rotateY(180deg); 
 }
 
 .card-front, .card-back {
   position: absolute;
   width: 100%;
   height: 100%;
-  backface-visibility: hidden; /* Hide the back side when flipped */
+  backface-visibility: hidden;
 }
 
 .card-front {
@@ -187,7 +187,7 @@ section {
   align-items: center;
   padding: 1rem;
   border-radius: 10px;
-  transform: rotateY(180deg); /* Make the back face rotated initially */
+  transform: rotateY(180deg); 
 }
 
 .character-card img {
@@ -207,8 +207,6 @@ section {
   margin-top: 1rem;
 }
 
-
-/* Replace the existing maps section CSS with these styles */
 #maps {
   background-color: #2a2a2a;
   color: #ffd700;
@@ -235,7 +233,7 @@ section {
 .map-wrapper {
   position: relative;
   width: 100%;
-  padding-top: 56.25%; /* 16:9 Aspect Ratio */
+  padding-top: 56.25%;
   overflow: hidden;
 }
 
@@ -322,7 +320,6 @@ section {
   }
 }
 
-/* Position the markers */
 .location-marker[data-location="Tower Mountains"] {
   top: 25%;
   left: 20%;
@@ -348,7 +345,6 @@ section {
   left: 75%;
 }
 
-/* Styling for the location box that appears */
 .location-box {
   position: fixed;
   top: 50%;
@@ -358,7 +354,7 @@ section {
   color: #ffd700;
   padding: 2rem;
   border-radius: 10px;
-  display: none; /* Hidden initially */
+  display: none;
   max-width: 600px;
   width: 100%;
   text-align: center;
@@ -436,7 +432,6 @@ footer {
   }
 }
 
-/* Add these styles to your existing CSS */
 .story-section {
   background-color: #1a1428;
   padding: 4rem 0;
@@ -518,9 +513,6 @@ footer {
   object-fit: contain;
 }
 
-
-
-/* Floating decoration animation */
 .story-section::before,
 .story-section::after {
   content: '';
@@ -563,7 +555,6 @@ footer {
   }
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
   .story-frame {
       padding: 2rem;
@@ -595,7 +586,7 @@ footer {
 }
 
 audio {
-  display: none; /* Hide the audio player */
+  display: none;
 }
 
 .music-icon {

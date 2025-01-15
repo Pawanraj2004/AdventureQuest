@@ -1,9 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Map hover effects and interactions
   const mapContainer = document.querySelector('.map-container');
   const locationMarkers = document.querySelectorAll('.location-marker');
   
-  // Add glow effect on map hover
   mapContainer.addEventListener('mouseenter', () => {
       mapContainer.style.boxShadow = '0 0 30px rgba(255, 215, 0, 0.3)';
   });
@@ -12,49 +10,43 @@ document.addEventListener('DOMContentLoaded', () => {
       mapContainer.style.boxShadow = '0 0 20px rgba(0, 0, 0, 0.5)';
   });
 
-  // Location marker hover effects and tooltips
   locationMarkers.forEach(marker => {
       const tooltip = marker.querySelector('.tooltip');
       
       marker.addEventListener('mouseenter', () => {
-          // Scale up the marker
+          
           marker.style.transform = 'translate(-50%, -50%) scale(1.5)';
           marker.style.zIndex = '10';
           
-          // Add glow effect
           marker.style.boxShadow = '0 0 20px rgba(255, 215, 0, 0.6)';
           
-          // Show tooltip with animation
           if (tooltip) {
               tooltip.style.opacity = '1';
               tooltip.style.transform = 'translate(-50%, -120%) scale(1)';
           }
 
-          // Play hover sound
+          
           playHoverSound();
       });
 
       marker.addEventListener('mouseleave', () => {
-          // Reset marker style
+         
           marker.style.transform = 'translate(-50%, -50%) scale(1)';
           marker.style.zIndex = '1';
           marker.style.boxShadow = 'none';
           
-          // Hide tooltip
           if (tooltip) {
               tooltip.style.opacity = '0';
               tooltip.style.transform = 'translate(-50%, -100%) scale(0.9)';
           }
       });
 
-      // Click event for location markers
       marker.addEventListener('click', () => {
           const locationName = marker.getAttribute('data-location');
           showLocationInfo(locationName);
       });
   });
 
-  // Function to show location information
   function showLocationInfo(locationName) {
       const locationDetails = {
           'Tower Mountains': {
@@ -112,7 +104,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
   }
 
-  // Function to play hover sound
   function playHoverSound() {
       const audioContext = new (window.AudioContext || window.webkitAudioContext)();
       const oscillator = audioContext.createOscillator();
@@ -130,7 +121,6 @@ document.addEventListener('DOMContentLoaded', () => {
       oscillator.stop(audioContext.currentTime + 0.3);
   }
 
-  // Add smooth scrolling for navigation
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
           e.preventDefault();
@@ -140,7 +130,6 @@ document.addEventListener('DOMContentLoaded', () => {
       });
   });
 
-  // Initialize map animations
   function initMapAnimations() {
       locationMarkers.forEach((marker, index) => {
           marker.style.animation = `float 3s infinite ${index * 0.2}s`;
@@ -154,7 +143,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   initMapAnimations();
 
-  // Add additional CSS for animations
   const style = document.createElement('style');
   style.textContent = `
       @keyframes float {
@@ -222,7 +210,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 const musicIcon = document.querySelector('.music-icon');
 const backgroundMusic = document.getElementById('background-music');
-let isPlaying = true; // Music will autoplay, so it's initially playing
+let isPlaying = true; 
 
 musicIcon.addEventListener('click', () => {
     if (isPlaying) {
